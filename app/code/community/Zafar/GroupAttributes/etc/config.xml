@@ -1,0 +1,32 @@
+<config>
+    <modules>
+        <Zafar_GroupAttributes>
+            <version>1.0</version>
+            <depends>
+                <Mage_Catalog />
+            </depends>
+        </Zafar_GroupAttributes>
+    </modules>
+    <global>
+        <models>
+            <groupattributes>
+                <class>Zafar_GroupAttributes_Model</class>
+            </groupattributes>
+        </models>
+        <helpers>
+            <groupattributes>
+                <class>Zafar_GroupAttributes_Helper</class>
+            </groupattributes>
+        </helpers>
+        <blocks>
+            <groupattributes>
+                <class>Zafar_GroupAttributes_Block</class>
+            </groupattributes>
+            <catalog>
+                <rewrite>
+                    <product_view_attributes>Zafar_GroupAttibutes_Block_Catalog_Product_View_Attributes</product_view_attributes>
+                </rewrite>
+            </catalog>
+        </blocks>
+    </global>
+</config>
