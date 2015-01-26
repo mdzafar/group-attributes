@@ -1,7 +1,7 @@
 <config>
     <modules>
         <Zafar_GroupAttributes>
-            <version>1.0</version>
+            <version>1.0.0</version>
             <depends>
                 <Mage_Catalog />
             </depends>
@@ -11,7 +11,16 @@
         <models>
             <groupattributes>
                 <class>Zafar_GroupAttributes_Model</class>
+                <resourceModel>catalogrequest_mysql4</resourceModel>
             </groupattributes>
+            <groupattributes_mysql4>
+                <class>Zafar_GroupAttributes_Model_Mysql4</class>
+                <entities>
+                    <groups>
+                        <table>eav_frontend_attribute_group_label</table>
+                    </groups> 
+                </entities>
+            </groupattributes_mysql4>
         </models>
         <helpers>
             <groupattributes>
@@ -28,5 +37,34 @@
                 </rewrite>
             </catalog>
         </blocks>
+        <resources>
+            <groupattributes_setup>
+                <setup>
+                    <module>Zafar_GroupAttributes</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </groupattributes_setup>
+            <groupattributes_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </groupattributes_write>
+            <groupattributes_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </groupattributes_read>
+        </resources>
     </global>
+    <frontend>
+        <layout>
+            <updates>
+                <groupattributes>
+                    <file>groupattributes.xml</file>
+                </groupattributes>
+            </updates>
+        </layout>
+    </frontend>
 </config>
