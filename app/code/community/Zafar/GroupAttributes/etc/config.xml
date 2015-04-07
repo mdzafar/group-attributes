@@ -11,7 +11,7 @@
         <models>
             <groupattributes>
                 <class>Zafar_GroupAttributes_Model</class>
-                <resourceModel>catalogrequest_mysql4</resourceModel>
+                <resourceModel>groupattributes_mysql4</resourceModel>
             </groupattributes>
             <groupattributes_mysql4>
                 <class>Zafar_GroupAttributes_Model_Mysql4</class>
@@ -33,9 +33,16 @@
             </groupattributes>
             <catalog>
                 <rewrite>
-                    <product_view_attributes>Zafar_GroupAttibutes_Block_Catalog_Product_View_Attributes</product_view_attributes>
+                    <product_view_attributes>Zafar_GroupAttributes_Block_Catalog_Product_View_Attributes</product_view_attributes>
                 </rewrite>
             </catalog>
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_attribute_set_main>Zafar_GroupAttributes_Block_Adminhtml_Catalog_Product_Attribute_Set_Main</catalog_product_attribute_set_main>
+                    <catalog_product_attribute_set_main_formset>Zafar_GroupAttributes_Block_Adminhtml_Catalog_Product_Attribute_Set_Main_Formset</catalog_product_attribute_set_main_formset>
+                    
+                </rewrite>
+            </adminhtml>
         </blocks>
         <resources>
             <groupattributes_setup>
@@ -67,4 +74,17 @@
             </updates>
         </layout>
     </frontend>
+    <adminhtml>
+        <events>
+            <eav_entity_attribute_set_save_after>
+                <observers>
+                    <catalog>
+                        <type>singleton</type>
+                        <class>Zafar_GroupAttributes_Model_Observer</class>
+                        <method>saveAttributeGroupName</method>
+                    </catalog>
+                </observers>
+            </eav_entity_attribute_set_save_after>
+        </events>
+    </adminhtml>
 </config>
